@@ -83,7 +83,7 @@ regex==2023.10.3
 reportlab==4.0.4
 requests==2.31.0
 rich==13.7.0
-rich-toolkit==0.1.5
+
 rsa==4.9
 safetensors==0.3.3
 sentencepiece==0.1.99
