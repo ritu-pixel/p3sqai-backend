@@ -1,0 +1,14 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud run deploy contract-doc-explainer \
+        --region=us-central1 \
+        --source=. \
+        --platform=managed \
+        --allow-unauthenticated \
+        --memory=1Gi
+
+timeout: "900s"
