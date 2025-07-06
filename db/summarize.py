@@ -4,7 +4,6 @@ from pydantic import BaseModel
 from typing import Optional
 
 from db.table import FileDB
-from models.models import classify_clauses
 
 class TranscriptResponse(BaseModel):
     file_id: UUID
@@ -16,6 +15,9 @@ class TranscriptResponse(BaseModel):
 
 
 def transcribe_and_summarize(file_record: FileDB, db: Session, current_user: str) -> TranscriptResponse:
+    # Lazy import heavy function to avoid startup memory spike
+    from models.models import classify_clauses
+
     extracted_text = file_record.transcribed_text
     db.commit()
 
